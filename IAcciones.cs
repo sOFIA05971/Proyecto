@@ -14,7 +14,7 @@ namespace Proyecto
 
         void Eliminar(int matricula);
 
-        void Actualizar(int matricula, string nombre, int edad);
+        void Actualizar(int matriculaActual, string Nuevonombre, int Nuevaedad, int Nuevamatricula);
 
         void ExportarExcel();
     }

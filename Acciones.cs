@@ -8,33 +8,54 @@ namespace Proyecto
 {
     internal class Acciones : IAcciones
     {
-
-        private List<Alumno> listalumnos = new List<Alumno>()
-        { new Alumno("Sofia",19,113117),
-        new Alumno("KK",22,116112)};
-
-        public List<Alumno> Consular()
-        { 
-            return listalumnos;
-        }
-        public void Actualizar(int matricula, string nombre, int edad)
+        Alumno a = new Alumno();
+        private List<Alumno> listaalumnos = new List<Alumno>()
         {
-            throw new NotImplementedException();
+            new Alumno("Yy", 21, 113069),
+            new Alumno("Sofia", 19, 112315)
+        };
+
+        public void Actualizar(int matriculaActual, string Nuevonombre, int Nuevaedad, int Nuevamatricula)
+        {
+            var actualizar = listaalumnos.FirstOrDefault(x => x.Matricula == matriculaActual);
+
+            if (actualizar != null)
+            {
+                actualizar.Nombre = Nuevonombre;
+                actualizar.Edad = Nuevaedad;
+                actualizar.Matricula = Nuevamatricula;
+                Console.WriteLine("Alumno se ha  actualizado correctamente");
+            }
+            else
+            {
+                Console.WriteLine("No se ha encontrado esa matrícula...");
+            }
         }
+
 
         public void Agregar(int matricula, string nombre, int edad)
         {
-            throw new NotImplementedException();
+
+            listaalumnos.Add(new Alumno(a.Nombre = nombre, a.Edad = edad, a.Matricula = matricula));
         }
 
         public List<Alumno> Consultar()
         {
-            throw new NotImplementedException();
+            return listaalumnos;
+
         }
 
         public void Eliminar(int matricula)
         {
-            throw new NotImplementedException();
+            var objetoeliminar = listaalumnos.FirstOrDefault(x => x.Matricula == matricula);
+            if (objetoeliminar != null)
+            {
+                listaalumnos.Remove(objetoeliminar);
+            }
+            else
+            {
+                Console.WriteLine("No existe esa matricula");
+            }
         }
 
         public void ExportarExcel()
